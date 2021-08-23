@@ -2,13 +2,18 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { RefreshIcon } from "@heroicons/react/outline";
 import { useLocalStorage } from "react-use";
-import router from "next/router";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
   const [userName, setUserName] = useState<string>("");
   const [userPwd, setUserPwd] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [_, setAdminToken] = useLocalStorage("oredeem-admin-token");
+  const [adminToken, setAdminToken] = useLocalStorage("oredeem-admin-token");
+
+  if (adminToken) {
+    router.push("/admin/unredeemedCards");
+  }
 
   const doLogin = async () => {
     setLoading(true);
@@ -31,7 +36,7 @@ const Login = () => {
           let response = await res.json();
           if (response.status) {
             setAdminToken(response.token);
-            toast.success("登入成功, 正在跳转");
+            toast.success("登入成功");
             router.push("/admin/unredeemedCards");
           } else {
             toast.error("登入失败, 请检查身份信息");
@@ -57,7 +62,7 @@ const Login = () => {
               onChange={(e) => {
                 setUserName(e.target.value);
               }}
-              className="w-full border rounded-md px-3 py-2 bg-white hover:border-gray-500 focus:border-gray-500 transition-colors outline-none"
+              className="w-full border rounded-md px-3 py-2 bg-white hover:border-gray-400 focus:border-gray-500 transition-colors outline-none"
             ></input>
           </div>
           <div>
@@ -68,7 +73,7 @@ const Login = () => {
               onChange={(e) => {
                 setUserPwd(e.target.value);
               }}
-              className="w-full border rounded-md px-3 py-2 bg-white hover:border-gray-500 focus:border-gray-500 transition-colors outline-none"
+              className="w-full border rounded-md px-3 py-2 bg-white hover:border-gray-400 focus:border-gray-500 transition-colors outline-none"
             ></input>
           </div>
         </section>

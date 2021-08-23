@@ -2991,8 +2991,8 @@ react-use@^17.2.4:
 
 react-weui@^1.2.3:
   version "1.2.3"
-  resolved "https://registry.nlark.com/react-weui/download/react-weui-1.2.3.tgz#f100018cbc3087d3c3f1b162070d79f22fca8598"
-  integrity sha1-8QABjLwwh9PD8bFiBw158i/KhZg=
+  resolved "https://registry.yarnpkg.com/react-weui/-/react-weui-1.2.3.tgz#f100018cbc3087d3c3f1b162070d79f22fca8598"
+  integrity sha512-R+y9623HpdlexaiEQlVZoHeBBM9GjMs0BL0Rh82/nqwWQtbqPcA/fZrKiXu0Qrjqc8qn85d/kcJRs0p1R4wpAg==
   dependencies:
     babel-runtime "^6.26.0"
     prop-types "^15.7.2"
@@ -3855,7 +3855,7 @@ webidl-conversions@^4.0.2:
 
 weui@1.1.0:
   version "1.1.0"
-  resolved "https://registry.npm.taobao.org/weui/download/weui-1.1.0.tgz#a6f4ba86bc0396a88360f104af0f51ba70bb9948"
+  resolved "https://registry.yarnpkg.com/weui/-/weui-1.1.0.tgz#a6f4ba86bc0396a88360f104af0f51ba70bb9948"
   integrity sha1-pvS6hrwDlqiDYPEErw9RunC7mUg=
 
 weui@^1.1.0:
