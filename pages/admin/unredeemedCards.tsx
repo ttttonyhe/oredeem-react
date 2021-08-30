@@ -11,6 +11,7 @@ import {
 import { useState } from "react";
 import { useModal, Modal } from "@geist-ui/react";
 import toast from "react-hot-toast";
+import ContentLoader from "react-content-loader";
 
 const RedeemedCards = () => {
   const [adminToken] = useLocalStorage("oredeem-admin-token");
@@ -42,7 +43,45 @@ const RedeemedCards = () => {
   const isEmpty = data?.[0]?.length === 0;
   const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < 25);
 
-  if (!data) return "loading";
+  if (!data)
+    return (
+      <div className="lg:bg-gray-50 min-h-screen">
+        <section className="grid grid-cols-2 gap-5 py-28 lg:px-0 px-3 lg:w-1/2 mx-auto">
+          <div className="whitespace-nowrap overflow-auto rounded-md shadow-md hover:shadow-lg transition-all bg-white px-5 py-5">
+            <ContentLoader viewBox="0 0 380 70">
+              <rect x="0" y="0" rx="5" ry="5" width="45" height="45" />
+              <rect x="60" y="2.5" rx="3" ry="3" width="300" height="20" />
+              <rect x="60" y="27.5" rx="3" ry="3" width="250" height="15" />
+              <rect x="0" y="55" rx="3" ry="3" width="380" height="15" />
+            </ContentLoader>
+          </div>
+          <div className="whitespace-nowrap overflow-auto rounded-md shadow-md hover:shadow-lg transition-all bg-white px-5 py-5">
+            <ContentLoader viewBox="0 0 380 70">
+              <rect x="0" y="0" rx="5" ry="5" width="45" height="45" />
+              <rect x="60" y="2.5" rx="3" ry="3" width="300" height="20" />
+              <rect x="60" y="27.5" rx="3" ry="3" width="250" height="15" />
+              <rect x="0" y="55" rx="3" ry="3" width="380" height="15" />
+            </ContentLoader>
+          </div>
+          <div className="whitespace-nowrap overflow-auto rounded-md shadow-md hover:shadow-lg transition-all bg-white px-5 py-5">
+            <ContentLoader viewBox="0 0 380 70">
+              <rect x="0" y="0" rx="5" ry="5" width="45" height="45" />
+              <rect x="60" y="2.5" rx="3" ry="3" width="300" height="20" />
+              <rect x="60" y="27.5" rx="3" ry="3" width="250" height="15" />
+              <rect x="0" y="55" rx="3" ry="3" width="380" height="15" />
+            </ContentLoader>
+          </div>
+          <div className="whitespace-nowrap overflow-auto rounded-md shadow-md hover:shadow-lg transition-all bg-white px-5 py-5">
+            <ContentLoader viewBox="0 0 380 70">
+              <rect x="0" y="0" rx="5" ry="5" width="45" height="45" />
+              <rect x="60" y="2.5" rx="3" ry="3" width="300" height="20" />
+              <rect x="60" y="27.5" rx="3" ry="3" width="250" height="15" />
+              <rect x="0" y="55" rx="3" ry="3" width="380" height="15" />
+            </ContentLoader>
+          </div>
+        </section>
+      </div>
+    );
 
   // count the total number of redeemed cards
   let totalCards = 0;
@@ -249,7 +288,7 @@ const RedeemedCards = () => {
                 const date = new Date(Date.parse(card.createdAt));
                 return (
                   <div
-                    className="cursor-pointer rounded-md shadow-md hover:shadow-lg transition-all bg-white px-5 py-4"
+                    className="whitespace-nowrap overflow-auto rounded-md shadow-md hover:shadow-lg transition-all bg-white px-5 py-4"
                     key={card.cuid}
                   >
                     <div className="flex items-center gap-3">

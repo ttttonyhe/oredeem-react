@@ -6,6 +6,7 @@ import { DownloadIcon, TrashIcon, InboxIcon } from "@heroicons/react/outline";
 import { Modal, useModal } from "@geist-ui/react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import ContentLoader from "react-content-loader";
 
 const RedeemedCards = () => {
   const [adminToken] = useLocalStorage("oredeem-admin-token");
@@ -87,7 +88,45 @@ const RedeemedCards = () => {
     setLoading(false);
   };
 
-  if (!data) return "loading";
+  if (!data)
+    return (
+      <div className="lg:bg-gray-50 min-h-screen">
+        <section className="grid grid-cols-2 gap-5 py-28 lg:px-0 px-3 lg:w-1/2 mx-auto">
+          <div className="whitespace-nowrap overflow-auto rounded-md shadow-md hover:shadow-lg transition-all bg-white px-5 py-5">
+            <ContentLoader viewBox="0 0 380 70">
+              <rect x="0" y="0" rx="5" ry="5" width="45" height="45" />
+              <rect x="60" y="2.5" rx="3" ry="3" width="300" height="20" />
+              <rect x="60" y="27.5" rx="3" ry="3" width="250" height="15" />
+              <rect x="0" y="55" rx="3" ry="3" width="380" height="15" />
+            </ContentLoader>
+          </div>
+          <div className="whitespace-nowrap overflow-auto rounded-md shadow-md hover:shadow-lg transition-all bg-white px-5 py-5">
+            <ContentLoader viewBox="0 0 380 70">
+              <rect x="0" y="0" rx="5" ry="5" width="45" height="45" />
+              <rect x="60" y="2.5" rx="3" ry="3" width="300" height="20" />
+              <rect x="60" y="27.5" rx="3" ry="3" width="250" height="15" />
+              <rect x="0" y="55" rx="3" ry="3" width="380" height="15" />
+            </ContentLoader>
+          </div>
+          <div className="whitespace-nowrap overflow-auto rounded-md shadow-md hover:shadow-lg transition-all bg-white px-5 py-5">
+            <ContentLoader viewBox="0 0 380 70">
+              <rect x="0" y="0" rx="5" ry="5" width="45" height="45" />
+              <rect x="60" y="2.5" rx="3" ry="3" width="300" height="20" />
+              <rect x="60" y="27.5" rx="3" ry="3" width="250" height="15" />
+              <rect x="0" y="55" rx="3" ry="3" width="380" height="15" />
+            </ContentLoader>
+          </div>
+          <div className="whitespace-nowrap overflow-auto rounded-md shadow-md hover:shadow-lg transition-all bg-white px-5 py-5">
+            <ContentLoader viewBox="0 0 380 70">
+              <rect x="0" y="0" rx="5" ry="5" width="45" height="45" />
+              <rect x="60" y="2.5" rx="3" ry="3" width="300" height="20" />
+              <rect x="60" y="27.5" rx="3" ry="3" width="250" height="15" />
+              <rect x="0" y="55" rx="3" ry="3" width="380" height="15" />
+            </ContentLoader>
+          </div>
+        </section>
+      </div>
+    );
 
   // count the total number of redeemed cards
   let totalCards = 0;
@@ -157,11 +196,12 @@ const RedeemedCards = () => {
           </div>
         </section>
         <section
-          className={`${data[0].length && "grid grid-cols-2 gap-5"} mt-5 lg:px-0 px-3`}
+          className={`${
+            data[0].length && "grid grid-cols-2 gap-5"
+          } mt-5 lg:px-0 px-3`}
         >
           {data[0].length ? (
             data.map((cards) => {
-              console.log(cards);
               return cards.map((card) => {
                 const bg = colorDeterminer(card.cardValue).bg;
                 const text = colorDeterminer(card.cardValue).text;
